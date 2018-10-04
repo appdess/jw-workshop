@@ -32,6 +32,12 @@ app.get('/images', (request,response) => {
 	response.render('image')
 })
 
+
+app.get('/sixt', (request,response) => {
+	response.render('sixt')
+})
+
+
 app.listen(port, (err) => {
 	if (err) {
 		return console.log('the server threw an error', err)
