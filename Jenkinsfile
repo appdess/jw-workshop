@@ -9,7 +9,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         container('docker'){
-          sh 'docker build -t appdess/jw-workshop:latest .'
+          sh 'docker build -t adess/jw-workshop:latest .'
         }
       }
     }
@@ -18,7 +18,7 @@ pipeline {
         container('docker'){
           withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-            sh 'docker push appdess/jw-workshop:latest'
+            sh 'docker push adess/jw-workshop:latest'
           }
         }
       }
